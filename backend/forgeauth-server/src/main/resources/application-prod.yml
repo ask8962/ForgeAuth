@@ -39,7 +39,7 @@ spring:
 
 forgeauth:
   jwt:
-    key-store-path: ${FORGEAUTH_JWT_KEY_STORE_PATH:/data/forgeauth-keys.json}
+    key-store-path: ${FORGEAUTH_JWT_KEY_STORE_PATH:/tmp/forgeauth-keys.json}
   oauth2:
     issuer: ${FORGEAUTH_OAUTH2_ISSUER:http://localhost:8080}
   cors:
