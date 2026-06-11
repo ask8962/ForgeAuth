@@ -1,0 +1,13 @@
+com\forgeauth\server\config\AuthorizationServerConfig.class
+com\forgeauth\server\api\auth\AuthController.class
+com\forgeauth\server\api\auth\AuthController$UserDto.class
+com\forgeauth\server\api\oauth\ConsentController.class
+com\forgeauth\server\service\AuthApplicationService.class
+com\forgeauth\server\filter\RateLimitFilter.class
+com\forgeauth\server\config\TestClientInitializer.class
+com\forgeauth\server\filter\AuditFilter.class
+com\forgeauth\server\config\JwtTokenCustomizerConfig.class
+com\forgeauth\server\ForgeAuthApplication.class
+com\forgeauth\server\advice\GlobalExceptionHandler.class
+com\forgeauth\server\api\oauth\DeviceController.class
+com\forgeauth\server\config\SecurityConfig.class

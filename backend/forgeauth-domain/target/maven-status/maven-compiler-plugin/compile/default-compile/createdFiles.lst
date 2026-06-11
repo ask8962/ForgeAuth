@@ -1,0 +1,7 @@
+com\forgeauth\domain\session\repository\SessionRepository.class
+com\forgeauth\domain\user\model\User$UserBuilder.class
+com\forgeauth\domain\session\model\Session$SessionBuilder.class
+com\forgeauth\domain\user\model\AccountStatus.class
+com\forgeauth\domain\user\repository\UserRepository.class
+com\forgeauth\domain\session\model\Session.class
+com\forgeauth\domain\user\model\User.class

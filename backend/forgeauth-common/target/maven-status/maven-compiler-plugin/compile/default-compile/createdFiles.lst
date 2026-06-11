@@ -1,0 +1,12 @@
+com\forgeauth\common\dto\RegisterRequest.class
+com\forgeauth\common\dto\AuthResponse$UserDto$UserDtoBuilder.class
+com\forgeauth\common\dto\ErrorResponse$ErrorResponseBuilder.class
+com\forgeauth\common\dto\ErrorResponse.class
+com\forgeauth\common\dto\TokenRefreshRequest.class
+com\forgeauth\common\dto\AuthResponse.class
+com\forgeauth\common\dto\LoginRequest.class
+com\forgeauth\common\dto\ErrorResponse$ErrorDetails$ErrorDetailsBuilder.class
+com\forgeauth\common\exception\ApiException.class
+com\forgeauth\common\dto\AuthResponse$AuthResponseBuilder.class
+com\forgeauth\common\dto\AuthResponse$UserDto.class
+com\forgeauth\common\dto\ErrorResponse$ErrorDetails.class

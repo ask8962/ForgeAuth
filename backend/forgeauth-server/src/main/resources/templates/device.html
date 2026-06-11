@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Verification - ForgeAuth</title>
+    <!-- Use Tailwind via CDN for the standard backend templates -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 flex items-center justify-center h-screen font-sans text-slate-900">
+    <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 max-w-md w-full text-center">
+        <h1 class="text-2xl font-semibold mb-4">Connect a Device</h1>
+        <p class="text-slate-500 mb-6">
+            Enter the code displayed on your device to authorize it.
+        </p>
+
+        <form th:action="@{/oauth2/device_verification}" method="post" class="space-y-4">
+            <div th:if="${param.error}" class="bg-red-50 text-red-600 p-3 rounded text-sm mb-4">
+                Invalid or expired device code.
+            </div>
+
+            <div>
+                <input type="text"
+                       name="user_code"
+                       placeholder="XXXX-XXXX"
+                       class="w-full text-center text-2xl tracking-widest font-mono p-3 border border-slate-300 rounded focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 uppercase"
+                       required
+                       autofocus>
+            </div>
+
+            <button type="submit" class="w-full bg-indigo-600 text-white font-medium py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                Verify Device
+            </button>
+        </form>
+    </div>
+</body>
+</html>

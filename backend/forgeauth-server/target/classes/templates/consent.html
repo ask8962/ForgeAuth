@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consent Required - ForgeAuth</title>
+    <!-- Use Tailwind via CDN for the standard backend templates -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 flex items-center justify-center h-screen font-sans text-slate-900">
+    <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 max-w-md w-full">
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-semibold mb-2">Authorize Application</h1>
+            <p class="text-slate-500">
+                <span th:text="${clientName}" class="font-medium text-slate-900">Application</span> wants to access your ForgeAuth account.
+            </p>
+        </div>
+
+        <form th:action="@{/oauth2/authorize}" method="post" name="consent_form">
+            <input type="hidden" name="client_id" th:value="${clientId}">
+            <input type="hidden" name="state" th:value="${state}">
+
+            <div th:if="${not #lists.isEmpty(scopes)}" class="mb-6">
+                <p class="font-medium mb-3">It will be able to:</p>
+                <div class="space-y-3">
+                    <div th:each="scope : ${scopes}" class="flex items-start">
+                        <input class="mt-1 h-4 w-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500"
+                               type="checkbox"
+                               name="scope"
+                               th:value="${scope}"
+                               th:id="${scope}"
+                               checked>
+                        <label th:for="${scope}" class="ml-2 block text-sm text-slate-700">
+                            Access your <span th:text="${scope}" class="font-semibold"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div th:if="${not #lists.isEmpty(previouslyApprovedScopes)}" class="mb-6">
+                <p class="text-sm text-slate-500 mb-2">You have already granted the following permissions:</p>
+                <ul class="text-sm text-slate-700 list-disc pl-5">
+                    <li th:each="scope : ${previouslyApprovedScopes}" th:text="${scope}"></li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col space-y-3">
+                <button type="submit" class="w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    Allow Access
+                </button>
+                <button type="button" onclick="cancelConsent();" class="w-full bg-white text-slate-700 font-medium py-2 px-4 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function cancelConsent() {
+            document.consent_form.reset();
+            document.consent_form.submit();
+        }
+    </script>
+</body>
+</html>

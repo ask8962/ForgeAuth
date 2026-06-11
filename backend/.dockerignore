@@ -1,0 +1,14 @@
+target/
+*.class
+*.jar
+.git/
+.idea/
+.vscode/
+node_modules/
+*.log
+.env
+.env.local
+.env.production
+README.md
+Dockerfile
+.dockerignore
