@@ -1,9 +1,9 @@
 services:
   - type: web
     name: forgeauth-api
-    env: docker
-    dockerfilePath: backend/Dockerfile
-    context: backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
     plan: free
     healthCheckPath: /actuator/health
     disk:
